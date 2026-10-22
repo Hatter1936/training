@@ -1,0 +1,11 @@
+### Проверка работоспособности (пока просто заглушка)
+GET http://localhost:8080/api/health
+
+### Шаблон для создания сущности
+POST http://localhost:8080/api/tasks
+Content-Type: application/json
+
+{
+  "title": "Тестовая задача",
+  "description": "Проверка API"
+}
