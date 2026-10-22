@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: training
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/training_db
+    username: hackathon
+    password: "12345"
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
