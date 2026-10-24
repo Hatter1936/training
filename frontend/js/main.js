@@ -20,3 +20,28 @@ $(document).ready(function () {
         $parallaxBg.css('transform', 'translate(0px, 0px)');
     });
 });
+/* Модальное окно добавления события */
+const AddEvent = document.getElementById('AddEvent');
+const openAddEvent = document.getElementById('openAddEvent');
+const closeAddEvent = document.getElementById('closeAddEvent');
+
+openAddEvent.addEventListener('click', () => {
+  AddEvent.showModal();
+});
+
+closeAddEvent.addEventListener('click', () => {
+  AddEvent.close();
+});
+
+AddEvent.addEventListener('click', (event) => {
+  const rect = AddEvent.getBoundingClientRect();
+  const isInDialog = (
+    rect.top <= event.clientY &&
+    event.clientY <= rect.bottom &&
+    rect.left <= event.clientX &&
+    event.clientX <= rect.right
+  );
+  if (!isInDialog) {
+    AddEvent.close();
+  }
+});
