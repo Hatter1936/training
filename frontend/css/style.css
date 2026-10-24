@@ -19,6 +19,7 @@
     --white: rgb(234, 213, 255);
     --black: rgb(22, 24, 30);
     --gray: rgb(38, 40, 47);
+    --darkgray: rgb(31, 32, 38);
     --lightgray: rgb(50, 52, 61);
     --red: rgb(196, 60, 64);
   }
@@ -164,6 +165,7 @@ h1, h2, h3, h4, h5, h6 {
 .article-line-item p {
   text-indent: 0;
 }
+
 /* Модальное окно */
 dialog {
   position: relative;
@@ -198,15 +200,46 @@ dialog p {
   justify-content: space-between;
   gap: 32px;
 }
-.dialog-input-button {
-  font-size: 14px;
-  border: 0;
+
+.dialog-radio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  cursor: pointer;
   border-radius: 8px;
   height: 36px;
-  width: 100%;
   background-color: var(--gray);
-  padding-left: 10px;
+  font-size: 14px;
+  transition: background-color 0.05s ease;
+  overflow: hidden;
 }
+
+.dialog-radio:hover {
+  background-color: var(--darkgray);
+}
+
+.dialog-input-button {
+  appearance: none;
+  -webkit-appearance: none;
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.dialog-radio:has(.dialog-input-button:checked) {
+  background-color: var(--darkgray);
+}
+
+.dialog-radio span {
+  display: block;
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+}
+
 dialog::backdrop {
   background: rgba(0, 0, 0, 0.5);
 }
