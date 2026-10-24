@@ -5,7 +5,10 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "transaction")
+@Table(name = "transactions", indexes = {
+        @Index(name = "idx_tx_user_date", columnList = "user_id, operation_date"),
+        @Index(name = "idx_tx_category", columnList = "category_id")
+})
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

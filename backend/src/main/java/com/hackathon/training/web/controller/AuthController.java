@@ -20,4 +20,21 @@ public class AuthController {
         }
         return Map.of("id", user.getId(), "email", user.getEmail(), "companyName", user.getCompanyName());
     }
+
+    @PostMapping("/register")
+    public Map<String, Object> register(@RequestBody Map<String, String> req) {
+        if (userRepo.findByEmail(req.get("email")) != null) {
+            throw new RuntimeException("Пользователь с таким email уже существует");
+        }
+
+        User user = new User();
+        user.setEmail(req.get("email"));
+        user.setPassword(req.get("password"));
+        user.setCompanyName(req.get("companyName"));
+        user.setCompanyCode("NEW_" + System.currentTimeMillis());
+
+        userRepo.save(user);
+
+        return Map.of("id", user.getId(), "email", user.getEmail(), "companyName", user.getCompanyName());
+    }
 }
