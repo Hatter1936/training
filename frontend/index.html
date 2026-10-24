@@ -7,38 +7,70 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header class="header">
-        <div class="header-container">
-            <nav class="nav">
-                <ul class="menu">
-                    <li><img src="assets/images/logo.png" class="logo"></li>
-                    <li><a href="#">Главная</a></li>
-                    <li><a href="profile.html">Профиль</a></li>
-                    <li><a href="#">Друзья</a></li>
-                    <li><a href="#">Чаты</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <aside>
+        <img src="./assets/images/logo.png">
+        <ul style="margin-bottom: 100px;">
+            <li style="background-color: var(--lightgray)";><a href="index.html">Главная</a></li>
+            <li><a href="forecast.html">Прогноз</a></li>
+            <li><a href="history.html">История</a></li>
+            <li><a href="events.html">События</a></li>
+        </ul>
+        <a href="#">Имя ИНН</a>
+    </aside>
     <section class="article">
-        <div class="article-text">
-            <h1>Это заголовок 1</h1>
-            <h2>Это заголовок 2</h2>
-            <h3>Это заголовок 3</h3>
-            <p>Браузер может автоматически разбивать слова в соответствующих точках переноса, следуя любым правилам, которые он выбирает. Однако предлагаемые возможности разрыва строки (смотреть Предлагаемые возможности разрыва строки ниже) переопределят автоматический выбор точки разрыва, если таковые имеются.</p>
-            <p><i>Это пояснение</i></p>
+        <div class="article-card">
+            <div class="article-card-item">
+                <h3>Текущий остаток</h3>
+                <p>Прогнозы Прогнозы Прогнозы Прогнозы Прогнозы Прогнозы </p>
+            </div>
+            <div class="article-card-item">
+                <h3>Прогноз на 30 дней</h3>
+                <p>Прогнозы Прогнозы ПрогнозыПрогнозы ПрогнозыПрогнозы Прогнозы Прогнозы Прогнозы Прогнозы</p>
+            </div>
+            <div class="article-card-item">
+                <h3>Наличие рисков</h3>
+                <p>Прогнозы Прогнозы Прогнозы Прогнозы Прогнозы Прогнозы </p>
+            </div>
         </div>
     </section>
-    <section class="hero" id="hero-parallax">
-        <div class="hero-slider">
-            <div class="slide active">
-                <div class="parallax-bg"
-                    style="background-image: linear-gradient(rgba(28, 23, 23, 0.8), rgba(128,98,87,.4)), url('assets/images/people.jpg');">
+    <section>
+        
+    </section>
+    <section class="article" style="display: flex; justify-content: flex-end;">
+        <button class="article-button" id="openAddEvent">+ Добавить событие</button>
+    </section>
+    <dialog id="AddEvent">
+        <button class="article-close" id="closeAddEvent">x</button>
+        <h3>Добавить новое событие</h3>
+        <div class="dialog-form">
+            <div class="dialog-form-field">
+                <p>Название</p>
+                <input class="dialog-input-text" placeholder="Блаблабла"></input>
+            </div>
+            <div class="dialog-form-field">
+                <p>Сумма</p>
+                <input class="dialog-input-text" placeholder="0 ₽"></input>
+            </div>
+            <div class="dialog-form-field">
+                <p>Тип</p>
+                <div class="dialog-list">
+                    <input value="ааа" type="button" class="dialog-input-button"></input>
+                    <input value="ааа" type="button" class="dialog-input-button"></input>
                 </div>
-                <div class="slide-content">
-                    <h1>Заголовок</h1>
-                    <p>Мини текст</p>
-                </div>
+            </div>
+            <div class="dialog-form-field">
+                <p>Название</p>
+                <input class="dialog-input-text"></input>
+            </div>
+        </div>
+        <button class="dialog-button" id="AddEvent">Подтвердить</button>
+    </dialog>
+    <section class="article">
+        <h2 class="title">Панель предупреждений</h2>
+        <div class="article-line">
+            <div class="article-line-item">
+                <h3>Предупреждение!</h3>
+                <p>Прогнозы Прогнозы ПрогнозыПрогнозы ПрогнозыПрогнозы Прогнозы Прогнозы Прогнозы Прогнозы ПрогнозыПрогнозы Прогнозы Прогнозы Прогнозы Прогнозы</p>
             </div>
         </div>
     </section>

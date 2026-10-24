@@ -1,127 +1,42 @@
 @font-face {
   font-family: 'Overpass';
-  src: url('../fonts/Overpass-VariableFont_wght.ttf') format('truetype');
+  src: url('../assets/fonts/Overpass-VariableFont_wght.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Overpass';
-  src: url('../fonts/Overpass-Italic-VariableFont_wght.ttf') format('truetype');
+  src: url('../assets/fonts/Overpass-Italic-VariableFont_wght.ttf') format('truetype');
   font-weight: 400;
   font-style: italic;
 }
 
 :root {
-    --primary-color: #800020;
-    --primary-hover: #4f0014;
-    --secondary-color: #D45060;
-    --light-color: #F3E6D5;
-    --white: #FFF9F2;
-    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s ease;
+    --primary-color: rgb(154, 103, 187);
+    --primary-hover: rgb(173, 134, 198);
+    --secondary-color: rgb(196, 137, 255);
+    --white: rgb(234, 213, 255);
+    --black: rgb(22, 24, 30);
+    --gray: rgb(38, 40, 47);
+    --lightgray: rgb(50, 52, 61);
+    --red: rgb(196, 60, 64);
   }
 * {
+  color: var(--white);
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 body {
+  background-color: var(--black);
+  padding: 30px 0;
   font-family: 'Overpass';
 }
 section {
-  margin-bottom: 64px;
+  margin-bottom: 48px;
 }
-.title {
-  font-size: 32px;
-  font-weight: bold;
-  width: 100%;
-  height: 96px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-/* Шапка */
-.header {
-  width: 100%;
-  background-color: var(--primary-color);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.header-container {
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  display: block;
-  height: 100%;
-  max-height: 100%;
-  width: auto;
-  object-fit: contain;
-}
-
-.menu {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  list-style: none;
-  margin: 0;
-  padding: 0 20px;
-  gap: 48px;
-}
-
-.menu a {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  text-decoration: none;
-  color: var(--white);
-  font-size: 16px;
-  font-weight: bold;
-  transition: transform 0.1s ease;
-}
-
-.menu a:hover {
-  transform: scale(1.1);
-}
-
-@media (max-width: 768px) {
-  .header-container {
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-
-  .menu {
-    order: 3;
-    width: 100%;
-    justify-content: space-between;
-    gap: 10px;
-  }
-}
-
-/* Статья */
-.article {
-  width: 100%;
-  background-color: var(--secondary-color);
-}
-.article-text {
-  box-sizing: border-box;
-  width: 1000px;
-  max-width: 100%;
-  margin-inline: auto;
-  padding: 24px 32px;
-  border: 4px dotted var(--primary-color);
-}
-.article-text h1, h2, h3, h4, h5, h6 {
-  margin-bottom: 24px;
-}
-.article-text p {
+p {
   font-size: 18px;
   text-align: justify;
   text-indent: 24px;
@@ -130,7 +45,192 @@ section {
   -ms-hyphens: auto;
   hyphens: auto; 
 }
-
+.title {
+  text-indent: 4px;
+}
+/* Боковая панель */
+aside {
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--gray);
+  padding: 20px;
+  overflow-x: hidden;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+aside ul {
+  list-style-type: none;
+}
+aside li {
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+aside a {
+  text-decoration: none;
+}
+/* Кнопка */
+.article-button {
+  font-family: 'Overpass';
+  border: 0;
+  border-radius: 25px;
+  background-color: var(--primary-color);
+  height: 50px;
+  width: 300px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.05s ease;
+}
+.article-button:hover, .article-button:active {
+  transition: background-color 0.05s ease;
+  background-color: var(--primary-hover);
+}
+.article-close {
+  font-family: 'Overpass';
+  border: 0;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  height: 20px;
+  width: 20px;
+  font-size: 16px;
+  transition: background-color 0.05s ease;
+  position: absolute;
+  right: 15px;
+}
+.article-close:hover, .article-close:active {
+  transition: background-color 0.05s ease;
+  background-color: var(--primary-hover);
+}
+/* Блоки */
+.article {
+  margin-left: 20%;
+  width: 75%;
+  /*border: 1px solid var(--white);*/
+}
+.article-text {
+  box-sizing: border-box;
+  padding: 24px 32px;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 20px;
+}
+/* Карточки */
+.article-card {
+  box-sizing: border-box;
+  max-width: 100%;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.article-card p {
+  text-align: center;
+  font-size: 16px;
+}
+.article-card-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 300px;
+  padding: 24px 32px;
+  border: 2px solid var(--primary-color);
+  border-radius: 12px;
+}
+/* Карточки длинные */
+.article-line {
+  box-sizing: border-box;
+  max-width: 100%;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+}
+.article-line-item {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 24px 32px;
+  border: 2px solid var(--red);
+  border-radius: 8px;
+}
+.article-line-item h3 {
+  margin-bottom: 16px;
+}
+.article-line-item p {
+  text-indent: 0;
+}
+/* Модальное окно */
+dialog {
+  position: relative;
+  width: 600px;
+  background-color: var(--black);
+  margin-top: 40px;
+  margin-inline: auto;
+  padding: 30px;
+  border: 3px solid var(--gray);
+  border-radius: 12px;
+}
+dialog p {
+  margin-bottom: 4px;
+  text-indent: 0;
+  font-size: 16px;
+}
+.dialog-input-text {
+  font-size: 14px;
+  border: 0;
+  border-radius: 8px;
+  height: 36px;
+  width: 100%;
+  background-color: var(--lightgray);
+  padding-left: 10px;
+}
+.dialog-input-text:active, .dialog-input-text:focus {
+  border: 0;
+}
+.dialog-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 32px;
+}
+.dialog-input-button {
+  font-size: 14px;
+  border: 0;
+  border-radius: 8px;
+  height: 36px;
+  width: 100%;
+  background-color: var(--gray);
+  padding-left: 10px;
+}
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+.dialog-button {
+  font-family: 'Overpass';
+  border: 0;
+  border-radius: 25px;
+  background-color: var(--primary-color);
+  height: 50px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.05s ease;
+  margin-top: 42px;
+}
+.dialog-button:hover, .dialog-button:active {
+  transition: background-color 0.05s ease;
+  background-color: var(--primary-hover);
+}
+.dialog-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 /* Герой */
 .hero {
     position: relative;
