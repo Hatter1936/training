@@ -19,7 +19,6 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        // Создаем тестового пользователя
         if (userRepo.findByEmail("test@mail.ru") == null) {
             User u = new User();
             u.setEmail("test@mail.ru");
