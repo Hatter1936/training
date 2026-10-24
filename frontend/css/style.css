@@ -74,6 +74,32 @@ aside li {
 aside a {
   text-decoration: none;
 }
+.auth-switch {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 14px;
+}
+.auth-switch a {
+  color: var(--primary-hover);
+  text-decoration: none;
+}
+.auth-switch a:hover {
+  text-decoration: underline;
+}
+#openRegister {
+  margin-top: 8px;
+  margin-left: 15px;
+  display: inline-block;
+  background-color: var(--lightgray);
+  padding: 10px 15px;
+  border-radius: 7px;
+  transition: background-color 0.05s ease;
+}
+#openRegister:hover {
+  background-color: rgb(43, 45, 52);
+  transition: background-color 0.05s ease;
+  color: rgb(198, 179, 218);
+}
 /* Кнопка */
 .article-button {
   font-family: 'Overpass';
@@ -257,7 +283,29 @@ h1, h2, h3, h4, h5, h6 {
 .article-history td {
   border: 1px solid var(--gray);
 }
+.article-history td:last-child {
+  width: 40px;
+  text-align: center;
+  padding: 4px;
+}
 
+.row-delete {
+  font-family: 'Overpass';
+  border: 0;
+  border-radius: 6px;
+  background-color: var(--red);
+  color: var(--white);
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.05s ease;
+}
+.row-delete:hover,
+.row-delete:active {
+  background-color: rgb(220, 80, 84);
+}
 /* Регулярные поступления и платежи */
 .article-regular td {
   width: 100px;
