@@ -17,16 +17,112 @@
         </ul>
         <a href="#">Имя ИНН</a>
     </aside>
-    <section class="article">
-        <div class="article-text">
-            <h1>Это заголовок 1</h1>
-            <h2>Это заголовок 2</h2>
-            <h3>Это заголовок 3</h3>
-            <p>Браузер может автоматически разбивать слова в соответствующих точках переноса, следуя любым правилам, которые он выбирает. Однако предлагаемые возможности разрыва строки (смотреть Предлагаемые возможности разрыва строки ниже) переопределят автоматический выбор точки разрыва, если таковые имеются.</p>
-            <p><i>Это пояснение</i></p>
-        </div>
+
+    <section class="article" style="display: flex; justify-content: space-between; margin-bottom: 25px;">
+        <input class="article-search" placeholder="Поиск по названию...">
+        <button class="article-button" id="openAddEvent">+ Добавить событие</button>
     </section>
-    
+
+    <section class="article">
+        <button class="filter-button" style="margin-bottom: 10px;" id="openFilterTab">☰ Фильтр</button>
+        <table class="article-history">
+            <thead>
+                <tr>
+                    <th>Дата операции</th>
+                    <th>Стоимость</th>
+                    <th>Направление</th>
+                    <th>Контрибутор</th>
+                    <th>ИНН</th>
+                    <th>Назначение</th>
+                    <th>Остаток</th>
+                    <th>Категория</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jane</td>
+                    <td>Doe</td>
+                    <td>Software Engineer Software Engineer</td>
+                    <td>Jane</td>
+                    <td>Doe</td>
+                    <td>Software Engineer</td>
+                    <td>Jane</td>
+                    <td>Doe</td>
+                </tr>
+                <tr>
+                    <td>Jane</td>
+                    <td>Doe</td>
+                    <td>Software Engineer</td>
+                    <td>Jane</td>
+                    <td>Doe</td>
+                    <td>Software Engineer</td>
+                    <td>Jane</td>
+                    <td>Doe</td>
+                </tr>
+                <tr>
+                    <td>Jane</td>
+                    <td>Doe</td>
+                    <td>Software Engineer</td>
+                    <td>Jane</td>
+                    <td>Doe</td>
+                    <td>Software Engineer</td>
+                    <td>Jane</td>
+                    <td>Doe</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <dialog id="AddEvent">
+        <button class="article-close" id="closeAddEvent">x</button>
+        <h3>Добавить новое событие</h3>
+        <div class="dialog-form">
+            <div class="dialog-form-field">
+                <p>Название</p>
+                <input id="name" class="dialog-input-text" placeholder="Блаблабла"></input>
+            </div>
+            <div class="dialog-form-field">
+                <p>Тип</p>
+                <div class="dialog-list">
+                    <label class="dialog-radio">
+                    <input id="type-down" value="\/ Отток" type="radio" name="type" class="dialog-input-button" checked>
+                    <span>\/ Отток</span>
+                    </label>
+                    <label class="dialog-radio">
+                    <input id="type-up" value="/\ Приток" type="radio" name="type" class="dialog-input-button">
+                    <span>/\ Приток</span>
+                    </label>
+                </div>
+            </div>
+            <div class="dialog-form-field">
+                <p>Сумма</p>
+                <input id="amount" class="dialog-input-text" placeholder="0 ₽"></input>
+            </div>
+            <div class="dialog-form-field">
+                <p>Дата транзакции</p>
+                <input id="eventDate" class="dialog-input-text" type="date"></input>
+            </div>
+            <div class="dialog-form-field">
+                <p>Периодичность</p>
+                <div class="dialog-list">
+                    <label class="dialog-radio">
+                    <input id="period-one" value="Единоразовый" type="radio" name="period" class="dialog-input-button" checked>
+                    <span>Единоразовый</span>
+                    </label>
+                    <label class="dialog-radio">
+                    <input id="period-month" value="Ежемесячный" type="radio" name="period" class="dialog-input-button">
+                    <span>Ежемесячный</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <button class="dialog-button" id="AddEventBtn">Подтвердить</button>
+    </dialog>
+
+    <dialog id="FilterTab">
+        <button class="dialog-button" id="addFilter">Подтвердить</button>
+    </dialog>
+
     <script src="js/jquery-4.0.0.min.js"></script>
     <script src="js/main.js"></script>
 </body>

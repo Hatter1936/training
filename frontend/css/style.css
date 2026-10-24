@@ -79,9 +79,9 @@ aside a {
 .article-button {
   font-family: 'Overpass';
   border: 0;
-  border-radius: 25px;
+  border-radius: 8px;
   background-color: var(--primary-color);
-  height: 50px;
+  height: 36px;
   width: 300px;
   font-size: 16px;
   font-weight: bold;
@@ -150,6 +150,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-inline: auto;
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
 .article-line-item {
   display: flex;
@@ -165,7 +166,76 @@ h1, h2, h3, h4, h5, h6 {
 .article-line-item p {
   text-indent: 0;
 }
+.article-line-item-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 50px;
+}
+.article-line-item-list p + p {
+  border-left: 1px solid var(--white);
+  padding-left: 15px;
+}
+/* История */
+.article-search {
+  font-size: 14px;
+  border: 0;
+  border-radius: 8px;
+  height: 36px;
+  width: 50%;
+  background-color: var(--lightgray);
+  padding-left: 10px;
+}
+.filter-button {
+  font-family: 'Overpass';
+  border: 0;
+  border-radius: 8px;
+  background-color: var(--gray);
+  height: 36px;
+  width: 150px;
+  transition: background-color 0.05s ease;
+}
+.filter-button:hover, .filter-button:active {
+  transition: background-color 0.05s ease;
+  background-color: var(--lightgray);
+}
+.article-history {
+  font-size: 12px;
+  border-collapse: collapse;
+  width: 100%;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto; 
+}
+.article-history thead {
+  background-color: var(--gray);
+}
+.article-history th {
+  width: 100px;
+}
+.article-history td {
+  border: 1px solid var(--gray);
+}
 
+/* Регулярные поступления и платежи */
+.article-regular td {
+  width: 100px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 2px solid var(--gray);
+  padding: 10px;
+}
+.article-regular {
+  font-size: 16px;
+  border-collapse: collapse;
+  width: 100%;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  margin-bottom: 20px;
+}
 /* Модальное окно */
 dialog {
   position: relative;
