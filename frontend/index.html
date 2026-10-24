@@ -48,19 +48,42 @@
                 <input class="dialog-input-text" placeholder="Блаблабла"></input>
             </div>
             <div class="dialog-form-field">
+                <p>Тип</p>
+                <div class="dialog-list">
+                    <label class="dialog-radio">
+                    <input value="\/ Отток" type="radio" name="type" class="dialog-input-button" checked>
+                    <span>\/ Отток</span>
+                    </label>
+                    <label class="dialog-radio">
+                    <input value="/\ Приток" type="radio" name="type" class="dialog-input-button">
+                    <span>/\ Приток</span>
+                    </label>
+                </div>
+            </div>
+            <div class="dialog-form-field">
                 <p>Сумма</p>
                 <input class="dialog-input-text" placeholder="0 ₽"></input>
             </div>
             <div class="dialog-form-field">
-                <p>Тип</p>
-                <div class="dialog-list">
-                    <input value="ааа" type="button" class="dialog-input-button"></input>
-                    <input value="ааа" type="button" class="dialog-input-button"></input>
-                </div>
-            </div>
-            <div class="dialog-form-field">
                 <p>Название</p>
                 <input class="dialog-input-text"></input>
+            </div>
+            <div class="dialog-form-field">
+                <p>Дата транзакции</p>
+                <input class="dialog-input-text" type="date"></input>
+            </div>
+            <div class="dialog-form-field">
+                <p>Периодичность</p>
+                <div class="dialog-list">
+                    <label class="dialog-radio">
+                    <input value="Единоразовый" type="radio" name="period" class="dialog-input-button" checked>
+                    <span>Единоразовый</span>
+                    </label>
+                    <label class="dialog-radio">
+                    <input value="Ежемесячный" type="radio" name="period" class="dialog-input-button">
+                    <span>Ежемесячный</span>
+                    </label>
+                </div>
             </div>
         </div>
         <button class="dialog-button" id="AddEvent">Подтвердить</button>
