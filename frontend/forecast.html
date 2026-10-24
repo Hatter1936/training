@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сервис для знакомства</title>
+    <title>Сервис финансового прогнозирования для малого бизнеса</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,12 +13,46 @@
             <li><a href="index.html">Главная</a></li>
             <li style="background-color: var(--lightgray)";><a href="forecast.html">Прогноз</a></li>
             <li><a href="history.html">История</a></li>
-            <li><a href="events.html">События</a></li>
+            <li><a href="analytics.html">Аналитика</a></li>
         </ul>
         <a href="#">Имя ИНН</a>
     </aside>
+    
     <section class="article">
-        <h2 class="title">Анализ</h2>
+        <div class="article-forecast">
+            <h3>Текущий остаток</h3>
+            <div class="article-forecast-item">
+                <p>Текущий остаток средств</p>
+            </div>
+        </div>
+        <div class="article-forecast">
+            <h3>Прогноз на 30 дней</h3>
+            <div class="article-forecast-item">
+                <p>Прогноз на 30 дней</p>
+            </div>
+        </div>
+        <div class="article-forecast">
+            <h3>Наличие рисков</h3>
+            <div class="article-line-item">
+                <h3>Предупреждение о финансовом разрыве!</h3>
+                <div class="article-line-item-list">
+                    <p style="flex: 1;">31.02.2026</p>
+                    <p style="flex: 2;">Дефицит • 100000₽</p>
+                    <p style="flex: 3;">Недостаток денег в казне</p>
+                </div>
+            </div>
+            <div class="article-line-item">
+                <h3>Предупреждение о финансовом разрыве!</h3>
+                <div class="article-line-item-list">
+                    <p style="flex: 1;">31.02.2026</p>
+                    <p style="flex: 2;">Дефицит • 100000₽</p>
+                    <p style="flex: 3;">Недостаток денег в казне</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="article">
         <div class="article-list">
             <h3>Регулярные платежи (1 раз в месяц)</h3>
             <div class="article-list-item">
@@ -96,6 +130,8 @@
     </section>
     
     <script src="js/jquery-4.0.0.min.js"></script>
+    <script src="js/chart.umd.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/mycharts.js"></script>
 </body>
 </html>

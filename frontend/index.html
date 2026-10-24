@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сервис для знакомства</title>
+    <title>Сервис финансового прогнозирования для малого бизнеса</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,10 +13,11 @@
             <li style="background-color: var(--lightgray)";><a href="index.html">Главная</a></li>
             <li><a href="forecast.html">Прогноз</a></li>
             <li><a href="history.html">История</a></li>
-            <li><a href="events.html">События</a></li>
+            <li><a href="analytics.html">Аналитика</a></li>
         </ul>
         <a href="#">Имя ИНН</a>
     </aside>
+
     <section class="article">
         <div class="article-card">
             <div class="article-card-item">
@@ -25,7 +26,7 @@
             </div>
             <div class="article-card-item">
                 <h3>Прогноз на 30 дней</h3>
-                <p>Прогнозы Прогнозы ПрогнозыПрогнозы ПрогнозыПрогнозы Прогнозы Прогнозы Прогнозы Прогнозы</p>
+                <p>Прогнозы Прогнозы ПрогнозыПрогнозы ПрогнозыПрогнозы Прогнозы</p>
             </div>
             <div class="article-card-item">
                 <h3>Наличие рисков</h3>
@@ -33,31 +34,34 @@
             </div>
         </div>
     </section>
+
+    <section class="article">
+    <div style="position: relative; height: 400px; width: 100%;">
+        <canvas id="dataChart"></canvas>
+    </div>
+    </section>
+
     <section class="article">
         <h2 class="title">Панель уведомлений</h2>
-        <div class="article-line">
-            <div class="article-line-item">
-                <h3>Предупреждение о финансовом разрыве!</h3>
-                <div class="article-line-item-list">
-                    <p style="flex: 1;">31.02.2026</p>
-                    <p style="flex: 2;">Дефицит • 100000₽</p>
-                    <p style="flex: 3;">Вероятность разрыва • 100%</p>
-                    <p style="flex: 3;">Недостаток денег в казне</p>
+        <div class="article-notif">
+            <div class="article-notif-item">
+                <h3>Обнаружен финансовый разрыв!</h3>
+                <div class="article-notif-item-list">
+                    <p style="font-size: 16px; margin-bottom: 10px;">100000₽</p>
                 </div>
             </div>
-            <div class="article-line-item">
-                <h3>Предупреждение о финансовом разрыве!</h3>
-                <div class="article-line-item-list">
-                    <p style="flex: 1;">31.02.2026</p>
-                    <p style="flex: 2;">Дефицит • 100000₽</p>
-                    <p style="flex: 3;">Вероятность разрыва • 100%</p>
-                    <p style="flex: 3;">Недостаток денег в казне</p>
+            <div class="article-notif-item">
+                <h3>Обнаружен финансовый разрыв!</h3>
+                <div class="article-notif-item-list">
+                    <p style="font-size: 16px; margin-bottom: 10px;">100000₽</p>
                 </div>
             </div>
         </div>
         
     </section>
     <script src="js/jquery-4.0.0.min.js"></script>
+    <script src="js/chart.umd.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/mycharts.js"></script>
 </body>
 </html>

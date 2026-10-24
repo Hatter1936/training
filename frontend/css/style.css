@@ -40,7 +40,6 @@ section {
 p {
   font-size: 18px;
   text-align: justify;
-  text-indent: 24px;
   word-break: break-word;
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
@@ -107,6 +106,22 @@ aside a {
   transition: background-color 0.05s ease;
   background-color: var(--primary-hover);
 }
+/* Чарты */
+.article canvas {
+    max-width: 100%;
+    height: 400px !important;
+}
+.chart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    font-family: 'Overpass';
+    font-size: 16px;
+}
+.chart-table td {
+  background-color: var(--gray);
+  padding: 15px 20px;
+}
 /* Блоки */
 .article {
   margin-left: 20%;
@@ -143,6 +158,33 @@ h1, h2, h3, h4, h5, h6 {
   border: 2px solid var(--primary-color);
   border-radius: 12px;
 }
+/* Карточки панель уведомлений */
+.article-notif {
+  font-size: 14px;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.article-notif-item h3 {
+  text-align: center;
+}
+.article-notif p {
+  text-align: center;
+  font-size: 14px;
+}
+.article-notif-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 200px;
+  padding: 24px 32px;
+  border: 2px solid var(--red);
+  border-radius: 8px;
+}
 /* Карточки длинные */
 .article-line {
   box-sizing: border-box;
@@ -159,12 +201,10 @@ h1, h2, h3, h4, h5, h6 {
   padding: 24px 32px;
   border: 2px solid var(--red);
   border-radius: 8px;
+  margin-bottom: 16px;
 }
 .article-line-item h3 {
   margin-bottom: 16px;
-}
-.article-line-item p {
-  text-indent: 0;
 }
 .article-line-item-list {
   display: flex;
@@ -236,6 +276,9 @@ h1, h2, h3, h4, h5, h6 {
   hyphens: auto;
   margin-bottom: 20px;
 }
+.article-forecast {
+  margin-bottom: 40px;
+}
 /* Модальное окно */
 dialog {
   position: relative;
@@ -249,7 +292,6 @@ dialog {
 }
 dialog p {
   margin-bottom: 4px;
-  text-indent: 0;
   font-size: 16px;
 }
 .dialog-input-text {
