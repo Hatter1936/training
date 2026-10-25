@@ -21,23 +21,6 @@ $(document).ready(function () {
     });
 });
 
-/* Удаление записи */
-const historyTable = document.querySelector('.article-history');
-
-if (historyTable) {
-  historyTable.addEventListener('click', (e) => {
-    const btn = e.target.closest('.row-delete');
-    if (!btn) return;
-
-    const row = btn.closest('tr');
-    if (!row) return;
-
-    if (confirm('Удалить эту запись?')) {
-      row.remove();
-    }
-  });
-}
-
 /* Универсальный обработчик закрытия по клику на backdrop */
 function closeOnBackdrop(dialog) {
   if (!dialog) return;
@@ -62,50 +45,4 @@ if (AddEvent && openAddEvent && closeAddEvent) {
   openAddEvent.addEventListener('click', () => AddEvent.showModal());
   closeAddEvent.addEventListener('click', () => AddEvent.close());
   closeOnBackdrop(AddEvent);
-}
-
-/* Модалки вход / регистрация */
-const LoginModal    = document.getElementById('LoginModal');
-const RegisterModal = document.getElementById('RegisterModal');
-
-const openLogin     = document.getElementById('openLogin');
-const closeLogin    = document.getElementById('closeLogin');
-const openRegister  = document.getElementById('openRegister');
-const closeRegister = document.getElementById('closeRegister');
-
-const toRegister = document.getElementById('toRegister');
-const toLogin    = document.getElementById('toLogin');
-
-if (LoginModal && openLogin && closeLogin) {
-  openLogin.addEventListener('click', (e) => {
-    e.preventDefault();
-    LoginModal.showModal();
-  });
-  closeLogin.addEventListener('click', () => LoginModal.close());
-  closeOnBackdrop(LoginModal);
-}
-
-if (RegisterModal && openRegister && closeRegister) {
-  openRegister.addEventListener('click', (e) => {
-    e.preventDefault();
-    RegisterModal.showModal();
-  });
-  closeRegister.addEventListener('click', () => RegisterModal.close());
-  closeOnBackdrop(RegisterModal);
-}
-
-if (toRegister && LoginModal && RegisterModal) {
-  toRegister.addEventListener('click', (e) => {
-    e.preventDefault();
-    LoginModal.close();
-    RegisterModal.showModal();
-  });
-}
-
-if (toLogin && LoginModal && RegisterModal) {
-  toLogin.addEventListener('click', (e) => {
-    e.preventDefault();
-    RegisterModal.close();
-    LoginModal.showModal();
-  });
 }

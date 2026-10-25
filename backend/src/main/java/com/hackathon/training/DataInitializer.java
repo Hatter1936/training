@@ -19,21 +19,23 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        if (categoryRepo.count() == 0) {
-            save("Зарплата", "EXPENSE", true);
-            save("Аренда", "EXPENSE", true);
-            save("Налоги", "EXPENSE", true);
-            save("Выручка", "INCOME", false);
-            save("Закупки", "EXPENSE", false);
-            save("Банковские услуги", "EXPENSE", false);
-            save("Прочее", "EXPENSE", false);
-        }
+        upsert("Зарплата", "EXPENSE", true);
+        upsert("Аренда", "EXPENSE", true);
+        upsert("Налоги", "EXPENSE", true);
+        upsert("Выручка", "INCOME", false);
+        upsert("Закупки", "EXPENSE", false);
+        upsert("Банковские услуги", "EXPENSE", false);
+        upsert("Прочее", "EXPENSE", false);
+
         matcher.refreshCache();
     }
 
-    private void save(String name, String type, boolean regular) {
-        Category c = new Category();
-        c.setName(name);
+    private void upsert(String name, String type, boolean regular) {
+        Category c = categoryRepo.findByNameIgnoreCase(name);
+        if (c == null) {
+            c = new Category();
+            c.setName(name);
+        }
         c.setType(type);
         c.setIsRegular(regular);
         categoryRepo.save(c);

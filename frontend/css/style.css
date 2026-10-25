@@ -74,6 +74,9 @@ aside li {
 aside a {
   text-decoration: none;
 }
+aside img{
+  width: 150px;
+}
 .auth-switch {
   text-align: center;
   margin-top: 16px;

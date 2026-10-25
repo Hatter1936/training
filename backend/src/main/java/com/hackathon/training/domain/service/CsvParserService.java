@@ -47,10 +47,12 @@ public class CsvParserService {
                 if (parts.length < 9) continue;
 
                 try {
+                    String direction = parts[4].trim().equalsIgnoreCase("Поступление") ? "INCOME" : "EXPENSE";
+
                     Transaction tx = new Transaction();
                     tx.setOperationDate(LocalDate.parse(parts[2].trim()));
                     tx.setAmount(new BigDecimal(parts[3].trim().replace(",", ".")));
-                    tx.setDirection(parts[4].trim().equalsIgnoreCase("Поступление") ? "INCOME" : "EXPENSE");
+                    tx.setDirection(direction);
                     tx.setCounterpartyInn(parts[5].trim());
                     tx.setCounterpartyName(parts[6].trim());
                     tx.setPaymentPurpose(parts[7].trim());
@@ -58,8 +60,8 @@ public class CsvParserService {
                     tx.setUser(user);
                     tx.setIsManual(false);
 
-                    Category cat = matcher.match(parts[7]);
-                    if (cat == null) cat = matcher.fallback(tx.getDirection());
+                    Category cat = matcher.match(parts[7], direction);
+                    if (cat == null) cat = matcher.fallback(direction);
                     tx.setCategory(cat);
 
                     batchList.add(tx);

@@ -16,7 +16,10 @@
             <li style="background-color: var(--lightgray)";>
             <a href="analytics.html">Аналитика</a></li>
         </ul>
-        <a href="#">Имя ИНН</a>
+        <div>
+            <a href="#" id="openLogin">Войти</a>
+            <a href="#" id="openRegister">Регистрация</a>
+        </div>
     </aside>
 
     <section class="article">
@@ -25,14 +28,6 @@
     </div>
     <table class="chart-table">
             <tbody>
-                <tr>
-                    <td>Банки</td>
-                    <td>1 операция</td>
-                </tr>
-                <tr>
-                    <td>Налоги</td>
-                    <td>10 операций</td>
-                </tr>
             </tbody>
         </table>
     </section>
@@ -42,10 +37,56 @@
             <canvas id="barChart"></canvas>
         </div>
     </section>
+
+    <dialog id="LoginModal">
+    <button class="article-close" id="closeLogin">x</button>
+    <h3>Вход</h3>
+    <div class="dialog-form">
+        <div class="dialog-form-field">
+            <p>Email</p>
+            <input id="loginEmail" class="dialog-input-text" type="email" placeholder="example@mail.ru">
+        </div>
+        <div class="dialog-form-field">
+            <p>Пароль</p>
+            <input id="loginPassword" class="dialog-input-text" type="password" placeholder="••••••••">
+        </div>
+    </div>
+    <button class="dialog-button" id="LoginBtn">Войти</button>
+    <p style="text-align: center; margin-top: 16px; font-size: 14px;">
+        Нет аккаунта?
+        <a href="#" id="toRegister" style="color: var(--primary-hover); text-decoration: none;">Зарегистрироваться</a>
+    </p>
+</dialog>
+<dialog id="RegisterModal">
+    <button class="article-close" id="closeRegister">x</button>
+    <h3>Регистрация</h3>
+    <div class="dialog-form">
+        <div class="dialog-form-field">
+            <p>Email</p>
+            <input id="registerEmail" class="dialog-input-text" type="email" placeholder="example@mail.ru">
+        </div>
+        <div class="dialog-form-field">
+            <p>Пароль</p>
+            <input id="registerPassword" class="dialog-input-text" type="password" placeholder="••••••••">
+        </div>
+        <div class="dialog-form-field">
+            <p>Повторите пароль</p>
+            <input id="registerPasswordRepeat" class="dialog-input-text" type="password" placeholder="••••••••">
+        </div>
+        <div class="dialog-form-field">
+            <p>ИНН</p>
+            <input id="registerINN" class="dialog-input-text" type="text" inputmode="numeric" maxlength="12" placeholder="1234567890">
+        </div>
+    </div>
+    <button class="dialog-button" id="RegisterBtn">Зарегистрироваться</button>
+    <p style="text-align: center; margin-top: 16px; font-size: 14px;">
+        Уже есть аккаунт?
+        <a href="#" id="toLogin" style="color: var(--primary-hover); text-decoration: none;">Войти</a>
+    </p>
+</dialog>
     
     <script src="js/jquery-4.0.0.min.js"></script>
     <script src="js/chart.umd.js"></script>
-    <script src="js/mycharts.js"></script>
     <script src="js/main.js"></script>
     <script src="js/app.js"></script>
 </body>
