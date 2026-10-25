@@ -7,6 +7,5 @@ import java.util.List;
 
 public interface EventRepository extends JpaRepository<Event, Long> {
     List<Event> findByUserId(Long userId);
-
     List<Event> findByUserIdAndIsPaidFalse(Long userId);
 }

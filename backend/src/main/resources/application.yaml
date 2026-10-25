@@ -1,20 +1,27 @@
 spring:
   application:
     name: training
-
   datasource:
     url: jdbc:postgresql://localhost:5432/training_db
     username: hackathon
     password: "12345"
     driver-class-name: org.postgresql.Driver
-
+    hikari:
+      maximum-pool-size: 20
+      connection-timeout: 30000
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
-        format_sql: true
+        format_sql: false
+        order_inserts: true
+        order_updates: true
         jdbc:
           batch_size: 1000
-        order_inserts: true
+          batch_versioned_data: true
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB

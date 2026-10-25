@@ -23,11 +23,14 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<Map<String, Object>> handleNotFound(RuntimeException ex) {
+    public ResponseEntity<Map<String, Object>> handleRuntime(RuntimeException ex) {
         Map<String, Object> body = new HashMap<>();
-        body.put("code", "NOT_FOUND_OR_ERROR");
-        body.put("message", ex.getMessage());
+        String msg = ex.getMessage() != null ? ex.getMessage() : "Ошибка";
+        HttpStatus status = msg.contains("не найден") || msg.contains("не найдена") || msg.contains("not found")
+                ? HttpStatus.NOT_FOUND : HttpStatus.BAD_REQUEST;
+        body.put("code", status == HttpStatus.NOT_FOUND ? "NOT_FOUND" : "VALIDATION_FAILED");
+        body.put("message", msg);
         body.put("timestamp", LocalDateTime.now().toString());
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(body);
+        return ResponseEntity.status(status).body(body);
     }
 }
