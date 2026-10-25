@@ -62,8 +62,6 @@ if (AddEvent && openAddEvent && closeAddEvent) {
   openAddEvent.addEventListener('click', () => AddEvent.showModal());
   closeAddEvent.addEventListener('click', () => AddEvent.close());
   closeOnBackdrop(AddEvent);
-<<<<<<< HEAD
-=======
 }
 
 /* Модалки вход / регистрация */
@@ -110,5 +108,4 @@ if (toLogin && LoginModal && RegisterModal) {
     RegisterModal.close();
     LoginModal.showModal();
   });
->>>>>>> d2d82d255d3a66e3d6654005cfcd5b546f8824d9
 }
