@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:8080/api';
+const API_BASE = 'http://192.168.0.108:8080/api';
 const getUserId = () => localStorage.getItem('userId');
 const getCompanyName = () => localStorage.getItem('companyName') || 'Демо';
 
