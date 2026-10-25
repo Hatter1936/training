@@ -1,5 +1,6 @@
 package com.hackathon.training.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -22,11 +23,16 @@ public class Transaction {
     private String paymentPurpose;
     private BigDecimal balanceEod;
 
-    @ManyToOne
+    @Column(name = "is_manual")
+    private Boolean isManual = false;
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
 
@@ -46,6 +52,8 @@ public class Transaction {
     public void setPaymentPurpose(String paymentPurpose) { this.paymentPurpose = paymentPurpose; }
     public BigDecimal getBalanceEod() { return balanceEod; }
     public void setBalanceEod(BigDecimal balanceEod) { this.balanceEod = balanceEod; }
+    public Boolean getIsManual() { return isManual; }
+    public void setIsManual(Boolean isManual) { this.isManual = isManual; }
     public User getUser() { return user; }
     public void setUser(User user) { this.user = user; }
     public Category getCategory() { return category; }

@@ -13,12 +13,26 @@ import java.util.Optional;
 
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
 
-    @Query("SELECT t FROM Transaction t WHERE t.user.id = :userId AND t.operationDate > :date ORDER BY t.operationDate DESC")
-    List<Transaction> findRecentTransactions(@Param("userId") Long userId, @Param("date") LocalDate date);
+    List<Transaction> findByUserIdOrderByOperationDateDesc(Long userId);
 
-    Page<Transaction> findByUserIdOrderByOperationDateDesc(Long userId, Pageable pageable);
+    Page<Transaction> findByUserId(Long userId, Pageable pageable);
 
     List<Transaction> findByUserIdAndOperationDateAfter(Long userId, LocalDate date);
 
     Optional<Transaction> findFirstByUserIdOrderByOperationDateDesc(Long userId);
+
+    @Query("SELECT t FROM Transaction t WHERE t.user.id = :userId ORDER BY t.operationDate DESC")
+    Page<Transaction> findByUserOnly(@Param("userId") Long userId, Pageable pageable);
+
+    @Query("SELECT t FROM Transaction t WHERE t.user.id = :userId AND t.operationDate >= :dateFrom ORDER BY t.operationDate DESC")
+    Page<Transaction> findByUserAndDate(@Param("userId") Long userId, @Param("dateFrom") LocalDate dateFrom, Pageable pageable);
+
+    @Query("SELECT t FROM Transaction t WHERE t.user.id = :userId AND t.category.id = :categoryId ORDER BY t.operationDate DESC")
+    Page<Transaction> findByUserAndCategory(@Param("userId") Long userId, @Param("categoryId") Long categoryId, Pageable pageable);
+
+    @Query("SELECT t FROM Transaction t WHERE t.user.id = :userId AND t.operationDate >= :dateFrom AND t.category.id = :categoryId ORDER BY t.operationDate DESC")
+    Page<Transaction> findByUserAndDateAndCategory(@Param("userId") Long userId, @Param("dateFrom") LocalDate dateFrom, @Param("categoryId") Long categoryId, Pageable pageable);
+
+    @Query("SELECT COUNT(t) FROM Transaction t WHERE t.user.id = :userId")
+    long countByUser(@Param("userId") Long userId);
 }

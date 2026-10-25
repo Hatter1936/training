@@ -1,11 +1,14 @@
 package com.hackathon.training.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "events")
+@Table(name = "events", indexes = {
+        @Index(name = "idx_event_user_date", columnList = "user_id, event_date")
+})
 public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +21,8 @@ public class Event {
     private String period;
     private Boolean isPaid = false;
 
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 

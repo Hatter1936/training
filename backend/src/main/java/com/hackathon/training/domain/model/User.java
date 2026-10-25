@@ -1,7 +1,6 @@
 package com.hackathon.training.domain.model;
 
 import jakarta.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "users")
